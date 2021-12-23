@@ -17,7 +17,7 @@ import java.sql.Timestamp;
 public class Cctv {
     @Id // Primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 연결된 DB의 넘버링 전략을 따라간다.
-    private long id;
+    private Long id;
 
     @Column(nullable = false, length = 20)
     private String area;
@@ -26,13 +26,13 @@ public class Cctv {
     private String address;
 
     @Column(nullable = false, length = 20)
-    private String usage ;
+    private String useage;
 
     @Column(nullable = false, length = 20)
-    private float wgs_x;
+    private Float wgs_x;
 
     @Column(nullable = false, length = 20)
-    private float wgs_y;
+    private Float wgs_y;
 
     @CreationTimestamp // 시간 자동 입력
     private Timestamp modifyDate;
