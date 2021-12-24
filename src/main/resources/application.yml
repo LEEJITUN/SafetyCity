@@ -8,6 +8,12 @@ server:
       force: true
 
 spring:
+  thymeleaf:
+    suffix: .html
+    prefix: classpath:/templates/
+    cache: false
+    check-template-location: true
+
   devtools:
     livereload:
       enabled: true

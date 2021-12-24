@@ -1,13 +1,11 @@
-package com.Bigdata.safetycity.model;
+package com.Bigdata.safetycity.model.Cctv;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 @Builder
 @NoArgsConstructor

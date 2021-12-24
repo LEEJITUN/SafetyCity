@@ -10,4 +10,9 @@ public class HomeController {
     public String mainBoard(){
         return "index.html";
     }
+
+    @GetMapping("/chart")
+    public String chart(){
+        return "charts.html";
+    }
 }
