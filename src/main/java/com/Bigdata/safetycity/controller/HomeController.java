@@ -1,18 +1,32 @@
 package com.Bigdata.safetycity.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-    @GetMapping({"", "/"})
+    @GetMapping("/")
     public String mainBoard(){
-        return "index.html";
+        return "index";
     }
 
-    @GetMapping("/chart")
+    @GetMapping("/charts")
     public String chart(){
-        return "charts.html";
+        return "charts";
+    }
+
+    @GetMapping("/tables")
+    public String table(){
+        return "tables";
+    }
+
+    @GetMapping("/cctv")
+    public String cctv(){
+        return "dashboard/cctv/cctv";
+    }
+
+    @GetMapping("/lamp")
+    public String lamp(){
+        return "dashboard/lamp/lamp";
     }
 }

@@ -9,10 +9,10 @@ server:
 
 spring:
   thymeleaf:
+    prefix: classpath:templates/
     suffix: .html
-    prefix: classpath:/templates/
-    cache: false
-    check-template-location: true
+    mode: HTML5
+
 
   devtools:
     livereload:
