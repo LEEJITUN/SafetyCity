@@ -2,6 +2,8 @@ package com.Bigdata.safetycity.repository;
 
 import com.Bigdata.safetycity.model.datas.Cctv;
 import com.Bigdata.safetycity.model.Count;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -19,4 +21,5 @@ public interface CctvRepository extends JpaRepository<Cctv, Long> {
             nativeQuery = true
     )
     List<Count> findTop5Cctv();
+    Page<Cctv> findCctvByArea(Pageable pageable, String area);
 }

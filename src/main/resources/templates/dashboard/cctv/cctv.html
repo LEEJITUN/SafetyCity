@@ -29,10 +29,11 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        CCTV 현황
+                                        CCTV 지도
+                                        <a class="text-black" href="/cctv/chart">자세히 보기</a>
                                     </div>
                                     <div class="card-body">
-                                        <div id="map" style="position:relative;width:100%;height:0;padding-bottom:60%;" th:include="dashboard/cctv/cctv_map"></div>
+                                        <div id="map" style="position:relative;width:100%;height:0;padding-bottom:60%;" th:include="/dashboard/cctv/layout/cctv_map"></div>
                                     </div>
                                 </div>
                             </div>
@@ -46,18 +47,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                CCTV현황 (대시보드에선 최대 10,000개 까지 표시됩니다.)
-                            </div>
-                            <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead id="datatableThread"></thead>
-                                    <tbody id="datatablesBody">
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="card mb-4" th:include="/dashboard/cctv/layout/cctv_table">
                         </div>
                     </div>
                 </main>
@@ -67,9 +57,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/data/chart-cctv.js"></script>
+        <script src="/js/cctv/chart-cctv.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="js/loadCctvData.js"></script>
+        <script src="/js/cctv/loadCctvData.js"></script>
     </body>
 </html>

@@ -20,13 +20,7 @@ public class HomeController {
         return "tables";
     }
 
-    @GetMapping("/cctv")
-    public String cctv(){
-        return "dashboard/cctv/cctv";
-    }
 
-    @GetMapping("/lamp")
-    public String lamp(){
-        return "dashboard/lamp/lamp";
-    }
+
+
 }

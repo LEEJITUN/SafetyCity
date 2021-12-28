@@ -17,13 +17,8 @@ public class CctvService {
     private CctvRepository cctvRepository;
 
     @Transactional(readOnly = true)
-    public Page<Cctv> getCctvs(Pageable pageable){
-        return cctvRepository.findAll(pageable);
-    }
-
-    @Transactional(readOnly = true)
-    public List<Cctv> getAllCctvs(){
-        return cctvRepository.findAll();
+    public Page<Cctv> getCctvsByArea(Pageable pageable,String area){
+        return cctvRepository.findCctvByArea(pageable, area);
     }
 
     @Transactional(readOnly = true)
