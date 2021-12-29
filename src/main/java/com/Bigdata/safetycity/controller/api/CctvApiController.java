@@ -34,7 +34,6 @@ public class CctvApiController {
         return new ResponseEntity<>(cctvs, HttpStatus.OK);
     }
 
-    // 일단 CCTV 하나만 테스트
     @GetMapping(value = "/api/cctvcnt", produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<Count>> datasent(){
         List<Count> cctvCnt = cctvService.getTopCctvCount();

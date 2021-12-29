@@ -5,19 +5,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-    @GetMapping("/")
+    @GetMapping({"/", ""})
     public String mainBoard(){
         return "index";
     }
 
-    @GetMapping("/charts")
+    @GetMapping("charts")
     public String chart(){
         return "charts";
     }
 
-    @GetMapping("/tables")
+    @GetMapping("tables")
     public String table(){
         return "tables";
+    }
+
+    @GetMapping("graph")
+    public String graph(){
+        return "black-dashboard/dashboard";
     }
 
 

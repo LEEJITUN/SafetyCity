@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/lamp")
 public class LampController {
     @GetMapping({"/", ""})
-    public String lamp(){
+    public String index(){
         return "dashboard/lamp/lamp";
     }
 
-    @GetMapping("/chart")
-    public String cctvChart(){
+    @GetMapping("chart")
+    public String chart(){
         return "dashboard/lamp/lamp_charts";
     }
 
-    @GetMapping("/table")
-    public String cctvTable(){
+    @GetMapping("table")
+    public String table(){
         return "dashboard/lamp/lamp_tables";
     }
 }

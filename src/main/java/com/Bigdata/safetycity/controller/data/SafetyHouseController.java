@@ -10,16 +10,16 @@ public class SafetyHouseController {
 
     @GetMapping({"/", ""})
     public String safetyHouse(){
-        return "/dashboard/safetyhouse/safetyhouse";
+        return "dashboard/safetyhouse/safetyhouse";
     }
 
-    @GetMapping("/chart")
+    @GetMapping("chart")
     public String safetyHouseChart(){
-        return "/dashboard/safetyhouse/safetyhouse_charts";
+        return "dashboard/safetyhouse/safetyhouse_charts";
     }
 
-    @GetMapping("/table")
+    @GetMapping("table")
     public String safetyHouseTable(){
-        return "/dashboard/safetyhouse/safetyhouse_tables";
+        return "dashboard/safetyhouse/safetyhouse_tables";
     }
 }

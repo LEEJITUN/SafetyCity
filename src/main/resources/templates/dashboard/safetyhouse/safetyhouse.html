@@ -14,14 +14,14 @@
     <body class="sb-nav-fixed">
         <div th:include="layout/topnav"></div>
         <div id="layoutSidenav">
-            <div id="layoutSidenav_nav" th:include="layout/sidenav">
-            </div>
-            <div id="layoutSidenav_content">
+            <div id="layoutSidenav_nav" th:include="layout/sidenav"></div>
+            <div th:include="layout/loading"></div>
+            <div id="layoutSidenav_content" class="invisible">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
+                        <h1 class="mt-4">대시보드</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item active">대시보드</li>
                         </ol>
                         <div th:include="layout/card"></div>
                         <div class="row">
@@ -29,11 +29,13 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        CCTV 지도
+                                        여성안전지킴이집 지도
                                         <a class="text-black" href="/safetyhouse/chart">자세히 보기</a>
                                     </div>
                                     <div class="card-body">
-                                        <div id="map" style="position:relative;width:100%;height:0;padding-bottom:60%;" th:include="dashboard/safetyhouse/safetyhouse_map"></div>
+                                        <div id="map" style="position:relative;width:100%;height:0;padding-bottom:60%;"
+                                             th:include="/dashboard/safetyhouse/layout/safetyhouse_map">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -41,62 +43,20 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-bar me-1"></i>
-                                        여성 안전가옥지킴이집 개수
+                                        여성안전지킴이집 개수
                                     </div>
                                     <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                CCTV현황
-                                <a class="text-black" href="/safetyhouse/table">자세히 보기</a>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-header">
-                                    <select class="form-select form-select-sm w-25" id="table_area" aria-label=".form-select-sm example">
-                                        <option value="강남구" selected>강남구</option>
-                                        <option value="강동구">강동구</option>
-                                        <option value="강북구">강북구</option>
-                                        <option value="강서구">강서구</option>
-                                        <option value="관악구">관악구</option>
-                                        <option value="광진구">광진구</option>
-                                        <option value="구로구">구로구</option>
-                                        <option value="금천구">금천구</option>
-                                        <option value="노원구">노원구</option>
-                                        <option value="도봉구">도봉구</option>
-                                        <option value="동대문구">동대문구</option>
-                                        <option value="동작구">동작구</option>
-                                        <option value="서대문구">서대문구</option>
-                                        <option value="서초구">서초구</option>
-                                        <option value="성동구">성동구</option>
-                                        <option value="성북구">성북구</option>
-                                        <option value="송파구">송파구</option>
-                                        <option value="양천구">양천구</option>
-                                        <option value="영등포구">영등포구</option>
-                                        <option value="용산구">용산구</option>
-                                        <option value="은평구">은평구</option>
-                                        <option value="종로구">종로구</option>
-                                        <option value="중구">중구</option>
-                                        <option value="중랑구">중랑구</option>
-                                    </select>
-                                </div>
-                                <div class="card-body">
-                                    <table id="datatablesSimple">
-<!--                                        <thead id="datatableThread">-->
-<!--                                        </thead>-->
-<!--                                        <tbody id="datatablesBody">-->
-<!--                                        </tbody>-->
-                                    </table>
-                                </div>
-                            </div>
+                        <div class="card mb-4" th:include="/dashboard/safetyhouse/layout/safetyhouse_table">
                         </div>
                     </div>
                 </main>
                 <div th:include="layout/footer"></div>
             </div>
         </div>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>

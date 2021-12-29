@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CctvController {
     @GetMapping({"/", ""})
     public String cctv(){
-        return "/dashboard/cctv/cctv";
+        return "dashboard/cctv/cctv";
     }
 
-    @GetMapping("/chart")
+    @GetMapping("chart")
     public String cctvChart(){
-        return "/dashboard/cctv/cctv_charts";
+        return "dashboard/cctv/cctv_charts";
     }
 
-    @GetMapping("/table")
+    @GetMapping("table")
     public String cctvTable(){
-        return "/dashboard/cctv/cctv_tables";
+        return "dashboard/cctv/cctv_tables";
     }
 }

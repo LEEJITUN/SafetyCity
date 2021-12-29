@@ -36,7 +36,6 @@ public class SafethouseApiController {
         return new ResponseEntity<>(safetyhouse, HttpStatus.OK);
     }
 
-    // 일단 CCTV 하나만 테스트
     @GetMapping(value = "/api/safetyhousecnt", produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<Count>> datasent(){
         return new ResponseEntity<>(safetyHouseService.getTopSafetyhouseCount(), HttpStatus.OK);

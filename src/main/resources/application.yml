@@ -8,6 +8,13 @@ server:
       force: true
 
 spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: chatdb
+
+
   thymeleaf:
     prefix: classpath:templates/
     suffix: .html

@@ -28,13 +28,25 @@ window.addEventListener('DOMContentLoaded', event => {
                     }
                 }
                 dataTable = new simpleDatatables.DataTable(datatablesSimple, {data: obj});
+                hideSpinner();
             });
+    }
+
+    let hideSpinner = () => {
+        document.getElementById('layoutSidenav_content').className = 'visible';
+        document.getElementById('loading').style.display = 'none';
+    }
+
+    let showSpinner = () => {
+        document.getElementById('layoutSidenav_content').className = 'invisible';
+        document.getElementById('loading').style.display = 'block';
     }
 
     loadData(area);
 
     document.getElementById('table_area').addEventListener('change', () => {
         area = document.getElementById('table_area').value;
+        showSpinner();
         loadData(area);
     });
 });
