@@ -25,7 +25,9 @@ public class HomeController {
         return "black-dashboard/dashboard";
     }
 
-
-
+    @GetMapping("chartPlace")
+    public String chartPlace(){
+        return "chartPlace";
+    }
 
 }

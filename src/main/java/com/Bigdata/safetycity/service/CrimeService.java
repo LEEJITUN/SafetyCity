@@ -15,7 +15,7 @@ public class CrimeService {
 
     @Transactional(readOnly = true)
     public List<Crime> getCrimeByTime(String time){
-        return crimeRepository.findCrimesByTime(time);
+        return crimeRepository.findTop5ByTimeOrderByCountDesc(time);
     }
 
     @Transactional(readOnly = true)

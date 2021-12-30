@@ -28,7 +28,7 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        시간별 범죄 수
+                                        장소별 범죄 수
                                     </div>
                                     <div class="card-body"><canvas id="myAreaChart" width="100%" height="60"></canvas></div>
                                     <!--                            style="background-image:url('img/moring-bg.jpg'); background-size: 100%"-->
@@ -39,12 +39,42 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-bar me-1"></i>
-                                        위험지수
-                                    </div>
-                                    <div class="card-body">
-                                        <h4 id="curr-time">현재 시간의 위험 지수는!</h4>
-                                        <canvas id="myBarChart" width="100%" height="40">
-                                        </canvas>
+                                        위험한 장소 Top5
+                                    </div>                                
+	                                <div class="card-body">
+	                                	<div class="row">
+	                                	  <div class="col">
+	                                       		<h4>절도</h4>
+		                                        	<canvas id="myDougChart4" width="100%" height="40">
+		                                        </canvas>
+	                                       </div>
+	                                       <div class="col">
+	                                       		<h4>폭력</h4>
+		                                        	<canvas id="myDougChart5" width="100%" height="40">
+		                                        </canvas>
+	                                       </div>
+	                                    </div>
+	                                    
+	                                    <div class="row">
+		                                       <div class="col">
+		                                       		<h4>살인</h4>
+			                                        	<canvas id="myDougChart" width="100%" height="40">
+			                                        </canvas>
+		                                       </div>
+		                                       <div class="col">
+		                                       		<h4>강도</h4>
+			                                        	<canvas id="myDougChart2" width="100%" height="40">
+			                                        </canvas>
+		                                       </div>
+		                                       <div class="col">
+	                                       		<h4>강간·강제추행</h4>
+		                                        	<canvas id="myDougChart3" width="100%" height="40">
+		                                        </canvas>
+		                                        </div>
+	                                       </div>
+	                    
+	                                      </div>
+	                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -57,6 +87,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="demo/chart-area-demo.js"></script>
+        <script src="js/chart-area-place.js"></script>
     </body>
 </html>

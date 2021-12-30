@@ -41,9 +41,10 @@ function getTimeforDb(){
     }
 }
 
-fetch("/api/crime")
+fetch("/api/place")
     .then((res) => res.json())
     .then((datas) => {
+	
         let dataset = []
 
         datas.map((data) => {
@@ -63,7 +64,10 @@ fetch("/api/crime")
                 pointBorderWidth: 2,
                 data: []
             };
+            
+            
             for ( let i = 0; i < data.length; i++ ) {
+		
                 obj.data.push(data[i].count);
             }
             dataset.push(obj);
@@ -71,49 +75,63 @@ fetch("/api/crime")
         new Chart(myAreachart, {
             type: 'line',
             data: {
-                labels: ["00:00~02:59", "03:00~05:59", "06:00~08:59", "09:00~11:59", "12:00~14:59", "15:00~17:59", "18:00~20:59", "21:00~23:59"],
+                labels: ["아파트,연립다세대", "단독주택", "고속도로", "노상", "백화점", "슈퍼마켓", "편의점", "대형할인마트"
+                ,"상점","숙박업소,목욕탕","유흥접객업소","사무실","공장","공사장,광산","창고","역,대합실","지하철","기타교통수단내","흥행장"
+                , "유원지","학교","금융기관","의료기관","종교기관","산야","해상","부대","구금장소","공지","주차장","공중화장실","PC방","기타"],
                 datasets: dataset,
             },
         });
     });
 
-let myBarChart = document.getElementById("myBarChart");
-let labels = []
-let datas = []
+let myDougChart = document.getElementById("myDougChart");
+let myDougChart2 = document.getElementById("myDougChart2");
+let myDougChart3 = document.getElementById("myDougChart3");
+let myDougChart4 = document.getElementById("myDougChart4");
+let myDougChart5 = document.getElementById("myDougChart5");
+/*let labels = []
+let datas = []*/
 
-fetch("/api/crime/time/" + getTimeforDb())
+function makeDoughnut(str,ob){
+	let labels = []
+	let datas = []
+	
+	fetch("/api/place/" + str)
     .then((res) => res.json())
     .then((content) => {
-        console.log(content);
         content.map((data) => {
-            labels.push(data.name);
+	
+            labels.push(data.type);
             datas.push(data.count);
         })
     })
     .then(() => {
-        if(myBarChart){
-            new Chart(myBarChart, {
-                type: "bar",
+        if(ob){
+            new Chart(ob, {
+                type: "doughnut",
                 data: {
                     labels: labels,
-                    datasets: [
-                        {
-                            label: "위험지수",
-                            backgroundColor: "rgba(200, 50, 50, 1)",
-                            borderColor: "rgba(200, 50, 50, 1)",
-                            data: datas,
-                        },
-                    ],
+					  datasets: [{
+					    label: 'My First Dataset',
+					    data: datas,
+					    backgroundColor: [
+					      'rgb(255, 99, 132)',
+					      'rgb(54, 162, 235)',
+					      'rgb(255, 205, 86)'
+					    ],
+					    hoverOffset: 4
+					  }]
                 },
             });
         }
     });
+}
 
-let currtimetext = document.getElementById('curr-time');
 
-currtimetext.innerHTML = '현재 시간 ' + currentTime.getHours() + ' : '
-    + currentTime.getMinutes() + ' 의 위험 지수는!'
-
+makeDoughnut("살인",myDougChart)
+makeDoughnut("강도",myDougChart2)
+makeDoughnut("강간및강제추행",myDougChart3)
+makeDoughnut("절도",myDougChart4)
+makeDoughnut("폭력",myDougChart5)
 
 
 
