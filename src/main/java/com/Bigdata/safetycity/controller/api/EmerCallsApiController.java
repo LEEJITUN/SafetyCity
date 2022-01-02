@@ -1,6 +1,7 @@
 package com.Bigdata.safetycity.controller.api;
 
 import com.Bigdata.safetycity.model.Count;
+import com.Bigdata.safetycity.model.datas.Cctv;
 import com.Bigdata.safetycity.model.datas.EmergencyCall;
 import com.Bigdata.safetycity.service.EmergencyCallService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,10 @@ public class EmerCallsApiController {
         List<Count> callsCnt = emergencyCallService.getTop5();
 
         return new ResponseEntity<>(callsCnt, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/api/emercall/areacnt", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<List<EmergencyCall>> cctvCntByArea(@RequestParam Double lat, @RequestParam Double lng){
+        return new ResponseEntity<>(emergencyCallService.getEmergencyCallBylatlng(lat, lng), HttpStatus.OK);
     }
 }

@@ -20,6 +20,16 @@ public interface CctvRepository extends JpaRepository<Cctv, Long> {
             "limit 5",
             nativeQuery = true
     )
+
     List<Count> findTop5Cctv();
+
     Page<Cctv> findCctvByArea(Pageable pageable, String area);
+
+    @Query(value = "SELECT * " +
+            "FROM safetycity.cctv " +
+            "where wgs_x > ?1 and wgs_x < ?2 " +
+            "and wgs_y > ?3 and wgs_y < ?4",
+            nativeQuery = true
+    )
+    List<Cctv> findCctvBylatlng(double minX, double maxX, double minY, double maxY);
 }

@@ -8,5 +8,6 @@ import java.util.List;
 public interface CrimeRepository extends JpaRepository<Crime, Long> {
     List<Crime> findCrimesByTimeOrderByCountDesc(String time);
     List<Crime> findTop5ByTimeOrderByCountDesc(String time);
+    List<Crime> findTop5ByTimeOrderByCountAsc(String time);
     List<Crime> findCrimesByName(String name);
 }

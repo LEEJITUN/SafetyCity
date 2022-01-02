@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Charts - SB Admin</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1b2c372cbd020f44bb79bd975d2d32d2"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <div th:include="layout/topnav"></div>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav" th:include="layout/sidenav">
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">차트</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="/">대시보드</a></li>
+                            <li class="breadcrumb-item active">차트</li>
+                        </ol>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-area me-1"></i>
+                                        시간별 범죄 수
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="map" style="width:100%;height:400px;">
+
+                                        </div>
+                                    </div>
+                                    <!--                            style="background-image:url('img/moring-bg.jpg'); background-size: 100%"-->
+                                    <div class="card-footer small text-muted curr-time"></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-bar me-1"></i>
+                                        위험지수
+                                    </div>
+                                    <div class="card-body">
+                                        <h4>현재 지역의 안전시설은!</h4>
+                                        <div id="curr-area"></div>
+                                        <canvas id="myBarChart" width="100%" height="40">
+                                        </canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <div th:include="layout/footer"></div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="js/map-crime.js"></script>
+    </body>
+</html>

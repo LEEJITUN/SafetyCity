@@ -40,4 +40,9 @@ public class CctvApiController {
 
         return new ResponseEntity<>(cctvCnt, HttpStatus.OK);
     }
+
+    @GetMapping(value = "/api/cctv/areacnt", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<List<Cctv>> cctvCntByArea(@RequestParam Double lat, @RequestParam Double lng){
+        return new ResponseEntity<>(cctvService.getCctvBylatlng(lat, lng), HttpStatus.OK);
+    }
 }

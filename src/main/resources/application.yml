@@ -7,12 +7,13 @@ server:
       enabled: true
       force: true
 
-spring:
 
+spring:
   thymeleaf:
     prefix: classpath:templates/
     suffix: .html
     mode: HTML5
+
 
 
   devtools:

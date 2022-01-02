@@ -1,6 +1,7 @@
 package com.Bigdata.safetycity.controller.api;
 
 import com.Bigdata.safetycity.model.Count;
+import com.Bigdata.safetycity.model.datas.Cctv;
 import com.Bigdata.safetycity.model.datas.SafetyHouse;
 import com.Bigdata.safetycity.model.datas.StreetLamp;
 import com.Bigdata.safetycity.service.LampService;
@@ -39,5 +40,10 @@ public class SafethouseApiController {
     @GetMapping(value = "/api/safetyhousecnt", produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<Count>> datasent(){
         return new ResponseEntity<>(safetyHouseService.getTopSafetyhouseCount(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/api/safetyhouse/areacnt", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<List<SafetyHouse>> safetyhouseCntByArea(@RequestParam Double lat, @RequestParam Double lng){
+        return new ResponseEntity<>(safetyHouseService.getSafetyHouseBylatlng(lat, lng), HttpStatus.OK);
     }
 }

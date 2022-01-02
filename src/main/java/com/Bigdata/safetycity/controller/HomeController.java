@@ -30,4 +30,9 @@ public class HomeController {
         return "chartPlace";
     }
 
+    @GetMapping("mapcrime")
+    public String mapCrime(){
+        return "map_crime";
+    }
+
 }

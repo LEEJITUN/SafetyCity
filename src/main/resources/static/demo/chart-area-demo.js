@@ -15,7 +15,7 @@ currtime.innerHTML = '현재 시각은 ' +
     currentTime.getSeconds() + ' 초 입니다.';
 
 function random_rgba() {
-    var o = Math.round, r = Math.random, s = 200
+    var o = Math.round, r = Math.random, s = 100
     return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
 }
 
@@ -84,7 +84,6 @@ let datas = []
 fetch("/api/crime/time/" + getTimeforDb())
     .then((res) => res.json())
     .then((content) => {
-        console.log(content);
         content.map((data) => {
             labels.push(data.name);
             datas.push(data.count);
@@ -112,7 +111,7 @@ fetch("/api/crime/time/" + getTimeforDb())
 let currtimetext = document.getElementById('curr-time');
 
 currtimetext.innerHTML = '현재 시간 ' + currentTime.getHours() + ' : '
-    + currentTime.getMinutes() + ' 의 위험 지수는!'
+    + currentTime.getMinutes() + ' 의 위험 범죄는!!'
 
 
 

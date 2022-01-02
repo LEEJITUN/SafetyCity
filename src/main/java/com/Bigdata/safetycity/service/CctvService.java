@@ -23,7 +23,15 @@ public class CctvService {
 
     @Transactional(readOnly = true)
     public List<Count> getTopCctvCount(){
-        List<Count> cctvs = cctvRepository.findTop5Cctv();
-        return cctvs;
+        return cctvRepository.findTop5Cctv();
+    }
+
+    @Transactional(readOnly = true)
+    public List<Cctv> getCctvBylatlng(Double lat, Double lng){
+        double minX = lat - 0.01;
+        double maxX = lat + 0.01;
+        double minY = lng - 0.01;
+        double maxY = lng + 0.01;
+        return cctvRepository.findCctvBylatlng(minX, maxX, minY, maxY);
     }
 }

@@ -27,4 +27,13 @@ public class EmergencyCallService {
         List<Count> emerCalls = emergencyCallRepository.findTop5emerCalls();
         return emerCalls;
     }
+
+    @Transactional(readOnly = true)
+    public List<EmergencyCall> getEmergencyCallBylatlng(Double lat, Double lng){
+        double minX = lat - 0.01;
+        double maxX = lat + 0.01;
+        double minY = lng - 0.01;
+        double maxY = lng + 0.01;
+        return emergencyCallRepository.findEmergencyCallBylatlng(minX, maxX, minY, maxY);
+    }
 }
