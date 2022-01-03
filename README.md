@@ -4,8 +4,8 @@
 
 [나 혼자 잘 산다](#)
 * [개요](https://github.com/JungSangHyup/SafetyCity/#개요)
-* [주제 선정 배경](#--------)
-* [빅데이터 분석](#-------)
+* [주제 선정 배경](https://github.com/JungSangHyup/SafetyCity/#주제 선정 배경)
+* [빅데이터 분석](https://github.com/JungSangHyup/SafetyCity/#빅데이터 분석)
   + [이상치 제거(비율)](#----------)
   + [상관관계 함수 (Corr 이용 -> heatmap 시각화)](#---------corr-------heatmap-----)
   + [경감 지표 선정](#--------)
