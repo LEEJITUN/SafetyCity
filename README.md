@@ -118,6 +118,18 @@ Corr 이용 -> heatmap 시각화
 
 ## 시각화 구현
 
+### 메인
+
+![image-20220103115645033](https://user-images.githubusercontent.com/51068026/147896908-4faeea31-28a5-4595-be99-653d69c27579.png)
+
+태블로로 시각화한 데이터를 보여준다.
+
+- 범죄율, CCTV, 치안시설, 보안등, 유흥업소
+- 
+- 해당 구에 안전시설이 많은 TOP 3와 WORST 3를 표시한다
+
+### 데이터 대시보드
+
 ![image-20220103111941433](https://user-images.githubusercontent.com/51068026/147896073-413f31d6-ca0d-4476-9109-4e259e5b42b7.png)
 
 안전시설 CCTV, 보안등, 여성 안전지킴이 집, 비상 안전 벨의 데이터를 보여준다.
@@ -128,7 +140,7 @@ Corr 이용 -> heatmap 시각화
 
 - CCTV 현황 자세히 보기
 
-#### 맵 시각화
+### 맵 시각화
 
 - ANACONDA : Python 데이터 라이브러리
 
@@ -136,7 +148,7 @@ Corr 이용 -> heatmap 시각화
 
 - tableau : 데이터 시각화 소프트웨어
 
-#### 차트 
+### 차트 
 
  - chart.js : HTML5 Canvas 방식의 **강력한 오픈소스** **라이브러리**
 
