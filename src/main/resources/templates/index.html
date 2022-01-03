@@ -1,29 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
-        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="/css/styles.css" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    <head th:include="layout/head">
     </head>
     <body class="sb-nav-fixed">
         <div th:include="layout/topnav"></div>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav" th:include="layout/sidenav">
-
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
+                    <iframe
+                            src="https://prod-apnortheast-a.online.tableau.com/t/tableauprojecttest/views/_0/1_1/6d89b1b4-b7e3-432a-8d72-b2b79d8469ac/37c1f09d-346b-4719-94f0-e694df0e937f?%3Aembed=yes&%3A&showVizHome=no&%3Atabs=no&%3Atoolbar=no"
+                            width="100%" height="720px">
+                    </iframe>
+                    <div class="container-fluid">
                         <div th:include="layout/card"></div>
                     </div>
                 </main>
@@ -32,7 +22,5 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     </body>
 </html>

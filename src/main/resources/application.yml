@@ -7,8 +7,17 @@ server:
       enabled: true
       force: true
 
+file:
+  upload-dir: /uploads
 
 spring:
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 500MB
+      max-request-size: 515MB
+
   thymeleaf:
     prefix: classpath:templates/
     suffix: .html
