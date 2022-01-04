@@ -2,17 +2,18 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
     <head th:include="layout/head">
     </head>
-    <body class="sb-nav-fixed">
+    <body class="sb-nav-fixed ">
         <div th:include="layout/topnav"></div>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav" th:include="layout/sidenav">
             </div>
-            <div id="layoutSidenav_content">
+            <div id="layoutSidenav_content" >
                 <main>
-                    <iframe
+				<iframe
                             src="https://prod-apnortheast-a.online.tableau.com/t/tableauprojecttest/views/_/1?%3Aembed=yes&%3A&showVizHome=no&%3Atabs=no&%3Atoolbar=no"
-                            width="100%" height="720px">
+                            width="100%" height="720px"  >
                     </iframe>
+                    
                     <div class="container-fluid">
                         <div th:include="layout/card"></div>
                     </div>
