@@ -14,9 +14,45 @@ currtime.innerHTML = '현재 시각은 ' +
     currentTime.getMinutes() + ' 분 ' +
     currentTime.getSeconds() + ' 초 입니다.';
 
-function random_rgba() {
-    var o = Math.round, r = Math.random, s = 200
-    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+/* const 변수 */
+// 색상
+const murder = ['rgb(164, 74, 74)' ,'rgb(203, 145, 145)','rgb(223, 192, 192)']
+const robbery = ['rgb(80, 95, 165)' ,'rgb(111, 123, 183)','rgb(193, 198, 223)']
+const rape = ['rgb(155, 155, 63)' ,'rgb(177, 177, 100)','rgb(220, 220, 187)']
+const theft = ['rgb(143, 69, 179)' ,'rgb(188, 144, 211)','rgb(213, 190, 226)']
+const violence = ['rgb(234, 154, 82)' ,'rgb(238, 197, 160)','rgb(241, 219, 201)']
+const colorList = [murder,robbery,rape,theft,violence]
+
+// 범죄이름, top,down
+const crimeName = ['살인','강도','강간및강제추행','절도','폭력']
+const topAndDown = ['T','D']
+
+
+// 캔버스
+let chartMain = []
+
+/* 색상 설정 */
+function random_rgba(str) {
+
+	selectColorList = [];
+	switch (str) {
+	  case '살인':
+		selectColorList = murder
+	    break;
+	  case '강도':
+		selectColorList = robbery
+	    break;
+	  case '강간및강제추행':
+		selectColorList = rape
+	    break;
+	  case '절도':
+		selectColorList = theft
+	    break;
+	  default:
+		selectColorList = violence
+	}
+	
+	return selectColorList
 }
 
 function getTimeforDb(){
@@ -41,6 +77,7 @@ function getTimeforDb(){
     }
 }
 
+/* 장소 그래프 생성 */
 fetch("/api/place")
     .then((res) => res.json())
     .then((datas) => {
@@ -48,18 +85,20 @@ fetch("/api/place")
         let dataset = []
 
         datas.map((data) => {
-            let randColor = random_rgba();
+			console.log('data',data[0].name)
+            let randColor = random_rgba(data[0].name);
+            console.log('randColor',randColor)
             let obj = {
                 label: data[0].name,
                 headings: data[0].name,
                 fill: false,
                 lineTension: 0.3,
-                borderColor: randColor,
+                borderColor: randColor[2],
                 pointRadius: 5,
-                pointBackgroundColor: randColor,
+                pointBackgroundColor: randColor[0],
                 pointBorderColor: "rgba(255,255,255,0.8)",
                 pointHoverRadius: 5,
-                pointHoverBackgroundColor: randColor,
+                pointHoverBackgroundColor: randColor[0],
                 pointHitRadius: 50,
                 pointBorderWidth: 2,
                 data: []
@@ -83,19 +122,17 @@ fetch("/api/place")
         });
     });
 
-let myDougChart = document.getElementById("myDougChart");
-let myDougChart2 = document.getElementById("myDougChart2");
-let myDougChart3 = document.getElementById("myDougChart3");
-let myDougChart4 = document.getElementById("myDougChart4");
-let myDougChart5 = document.getElementById("myDougChart5");
-/*let labels = []
-let datas = []*/
 
-function makeDoughnut(str,ob){
+
+
+/* 장소 도넛그래프  생성 */
+function makeDoughnut(code,str,ob,color){
+	
 	let labels = []
 	let datas = []
 	
-	fetch("/api/place/" + str)
+	console.log('code',code)
+	fetch("/api/place/" + code +'/'+ str)
     .then((res) => res.json())
     .then((content) => {
         content.map((data) => {
@@ -105,6 +142,7 @@ function makeDoughnut(str,ob){
         })
     })
     .then(() => {
+	
         if(ob){
             new Chart(ob, {
                 type: "doughnut",
@@ -113,11 +151,7 @@ function makeDoughnut(str,ob){
 					  datasets: [{
 					    label: 'My First Dataset',
 					    data: datas,
-					    backgroundColor: [
-					      'rgb(255, 99, 132)',
-					      'rgb(54, 162, 235)',
-					      'rgb(255, 205, 86)'
-					    ],
+					    backgroundColor:color,
 					    hoverOffset: 4
 					  }]
                 },
@@ -127,11 +161,31 @@ function makeDoughnut(str,ob){
 }
 
 
-makeDoughnut("살인",myDougChart)
-makeDoughnut("강도",myDougChart2)
-makeDoughnut("강간및강제추행",myDougChart3)
-makeDoughnut("절도",myDougChart4)
-makeDoughnut("폭력",myDougChart5)
+/* 차트 객체 생성 */
+function createChart(){
+	for(i = 0; i < 11; i++){
+		str = ""
+		if(i == 0){
+			chartMain.push(document.getElementById("myDougChart"))	
+		}else{
+			str = str + (i+1)
+			chartMain.push(document.getElementById("myDougChart"+str))	
+		}
+	}
+}
 
 
+//차트 만들기
+function makeChart(){
+	for(i = 0; i < chartMain.length ; i++){
+		
+		if(i < 6){
+			makeDoughnut(topAndDown[0],crimeName[i],chartMain[i],colorList[i])
+		}else{
+			makeDoughnut(topAndDown[1],crimeName[i-6],chartMain[i-1],colorList[i-6])
+		}
+	}
+}
 
+createChart()
+makeChart()

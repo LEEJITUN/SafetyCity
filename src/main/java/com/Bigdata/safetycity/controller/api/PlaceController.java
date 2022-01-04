@@ -42,9 +42,9 @@ public class PlaceController {
      * 전체 범죄 장소 조회
      * Service - getCrimeByPlcae
      * */
-    @GetMapping("api/place/{name}")
-    public ResponseEntity<List<Place>> findTop3PlaceByName(@PathVariable String name){
-        return new ResponseEntity<>(placeService.findTop3PlaceByName(name), HttpStatus.OK);
+    @GetMapping("api/place/{code}/{name}")
+    public ResponseEntity<List<Place>> findTop3PlaceByName(@PathVariable String code,@PathVariable String name){
+        return new ResponseEntity<>(placeService.findTop3PlaceByName(code,name), HttpStatus.OK);
     }
 
 

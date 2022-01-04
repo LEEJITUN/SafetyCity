@@ -30,8 +30,15 @@ public class PlaceService {
      * Service: findTop3PlaceByName
      * return List<Place>
      */
-	public List<Place> findTop3PlaceByName(String name) {
-		return placeRepository.findTop3ByNameOrderByCountDesc(name);
+	public List<Place> findTop3PlaceByName(String code, String name) {
+		
+		System.out.println("code"+code);
+		System.out.println("name"+name);
+		if(code.equals("T")) {
+			return placeRepository.findTop3ByNameOrderByCountDesc(name);			
+		}else {
+			return placeRepository.findTop3ByNameOrderByCount(name);
+		}
 	}
 	
 
