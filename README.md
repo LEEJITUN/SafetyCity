@@ -1,6 +1,7 @@
 # 나 혼자 잘 산다
 
-![KakaoTalk_20220102_171342196](https://user-images.githubusercontent.com/51068026/147896011-c9ddf7bc-56e9-4797-bfa3-d041481db293.png)
+![image](https://user-images.githubusercontent.com/29085414/148169668-f06861f6-b613-4aaa-b51b-95fa81578f13.png)
+
 
 ## 목차
 * [개요](#개요)
