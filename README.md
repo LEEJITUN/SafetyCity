@@ -176,9 +176,6 @@ Corr 이용 -> heatmap 시각화
 
 - Simple-DataTables : JS 기반의 데이터 테이블 라이브러리
 
-  
-### 시연 영상
-
 
 ## 조원
 
